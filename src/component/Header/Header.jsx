@@ -19,22 +19,22 @@ const Header = () => {
             }</span>
 
 
-            <ul className={`flex  items-center space-x-7 mr-2 duration-500 absolute md:static ${open ? 'top-14' : '-top-36'}`}>
-                <li className='font-semibold'>
+            <ul className={`flex items-center space-x-7 mr-2 duration-500 absolute md:static ${open ? 'top-14' : '-top-36'}`}>
+                <li className='font-semibold hover:text-blue-500'>
                     <NavLink
                         to='/'
                         className={({ isActive }) => (isActive ? 'text-blue-600' : '')}>
                         Home
                     </NavLink>
                 </li>
-                <li className='font-semibold'>
+                <li className='font-semibold hover:text-blue-500'>
                     <NavLink
                         to='/books'
                         className={({ isActive }) => (isActive ? 'text-blue-600' : '')}>
                         Books
                     </NavLink>
                 </li>
-                <li className='font-semibold'>
+                <li className='font-semibold hover:text-blue-500'>
                     <NavLink
                         to='/about'
                         className={({ isActive }) => (isActive ? 'text-blue-600' : '')}>
