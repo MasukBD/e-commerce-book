@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Home from './component/Home/Home';
-import Header from './component/Header/Header';
 import About from './component/About/About';
 import Books from './component/Books/Books';
 import App from './App';
+import BookDetails from './component/BookDetails/BookDetails';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +23,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/books',
-        element: <Books></Books>
+        element: <Books></Books>,
+        loader: () => fetch('https://api.itbook.store/1.0/new')
+      },
+      {
+        path: '/books/:bookId',
+        element: <BookDetails></BookDetails>,
+        loader: ({ params }) => fetch(`https://api.itbook.store/1.0/books/${params.bookId}`)
       },
       {
         path: '/about',
