@@ -3,9 +3,15 @@ import React from 'react';
 import Lottie from 'lottie-react';
 import techAnim from '../../assets/tech-animation.json';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
-import { Link } from 'react-router-dom'
+import { Link, useNavigation } from 'react-router-dom'
+import Loading from '../Loading/Loading';
 
 const Home = () => {
+    const loadingData = useNavigation();
+    if (loadingData.state === 'loading') {
+        return <Loading></Loading>
+    }
+
     return (
         <div className='mt-10 md:mt-0 flex flex-col md:flex-row justify-between w-11/12 mx-auto items-center'>
             {/* Text Content */}

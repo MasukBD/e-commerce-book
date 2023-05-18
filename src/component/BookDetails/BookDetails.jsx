@@ -1,14 +1,22 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigation } from 'react-router-dom';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
+import Loading from '../Loading/Loading';
 
 const BookDetails = () => {
     const data = useLoaderData();
     const [more, setMore] = useState(true);
+
+    const LoadingData = useNavigation();
+    if (LoadingData.state === 'loading') {
+        return <Loading></Loading>
+    }
+
+
     return (
-        <div className='w-11/12 md:w-3/5 mx-auto flex md:h-screen items-center'>
-            <div className='flex items-center flex-col md:flex-row border border-gray-950 px-3 py-5'>
+        <div className='w-11/12 mt-8 lg:mt-0 md:w-4/5 lg:w-3/5 mx-auto flex lg:h-screen items-center'>
+            <div className='flex items-center flex-col lg:flex-row border border-gray-950 px-3 py-5'>
                 <div className='w-full'>
                     <img className='w-full' src={data.image} alt="" />
                 </div>
